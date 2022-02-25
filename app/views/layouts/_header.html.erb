@@ -6,6 +6,7 @@
 
   <% if current_user %>
     <%= link_to current_user.name, current_user, class: "mx-4" %>
+    <%= link_to "My Projects", user_projects_path(current_user), class: "mx-4" %>
     <%= button_to "Sign out", session_path, method: :delete, class: "mx-4" %> 
   <% else %>
     <%= link_to "Sign in", new_session_path, class: "mx-4" %> 
