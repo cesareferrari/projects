@@ -3,7 +3,9 @@ class ProjectsController < ApplicationController
   before_action :require_signin
 
   def index
-    @projects = @user.projects
+    # @projects = @user.projects
+    @done_projects = @user.projects.done
+    @todo_projects = @user.projects.todo
   end
 
   def show
@@ -49,6 +51,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, :done)
   end
 end

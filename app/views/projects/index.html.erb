@@ -1,7 +1,14 @@
-<h1 class="font-bold text-4xl">My Projects</h1>
+<h1 class="font-bold text-4xl my-8">Current Projects</h1>
 
-<% @projects.each do |project| %>
+<% @todo_projects.each do |project| %>
   <%= render project, user: @user %>
 <% end %>
 
 <%= link_to "New project", new_user_project_path(@user), class: "button" %>
+
+
+<h2 class="font-bold text-3xl mt-8 mb-4">Done Projects</h1>
+
+<% @done_projects.each do |project| %>
+  <%= render project, user: @user %>
+<% end %>

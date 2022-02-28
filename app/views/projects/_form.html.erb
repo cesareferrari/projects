@@ -13,6 +13,11 @@
   </p>
 
   <p>
+    <%= f.label :done, class: 'block' %>
+    <%= f.check_box :done %>
+  </p>
+
+  <p>
   <% if project.persisted? %>
     <%= f.submit "Update project", class: "button" %>
   <% else %>
