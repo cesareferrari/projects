@@ -3,3 +3,5 @@
 <% @projects.each do |project| %>
   <%= render project, user: @user %>
 <% end %>
+
+<%= link_to "New project", new_user_project_path(@user), class: "button" %>

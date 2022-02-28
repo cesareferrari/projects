@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .button {
+    @apply rounded-md border-sky-800 bg-sky-300
+    py-2 px-4 my-8 mx-auto
+    inline-block
+    uppercase 
+    hover:bg-sky-400;
+  }
+
+  .field_with_errors input {
+    @apply border-2 border-red-700 bg-yellow-200;
+  }
+
+  .field_with_errors label {
+    @apply font-bold text-red-700;
+  }
+
+  .errors {
+    @apply border-2 border-red-700 bg-yellow-200 p-4;
   }
 }
 
-*/
+

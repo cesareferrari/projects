@@ -1,0 +1,20 @@
+<h1 class="font-bold text-4xl my-8">New project</h1>
+
+<%= form_with(model: [@user, @project]) do |f| %>
+
+  <%= render 'shared/errors', object: @project %>
+
+  <p>
+    <%= f.label :name, class: "block" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description, class: "block" %>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+  <%= f.submit "Create Project", class: "button" %>
+  </p>
+<% end %>
