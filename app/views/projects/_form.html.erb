@@ -1,0 +1,23 @@
+<%= form_with(model: [user, project]) do |f| %>
+
+  <%= render 'shared/errors', object: project %>
+
+  <p>
+    <%= f.label :name, class: "block" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description, class: "block" %>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+  <% if project.persisted? %>
+    <%= f.submit "Update project", class: "button" %>
+  <% else %>
+    <%= f.submit "Create project", class: "button" %>
+  <% end %>
+  </p>
+<% end %>
+
