@@ -2,7 +2,7 @@
 
 <%= status_for(@project) %>
 
-<div><%= @project.description %></div>
+<div><%= @project.description.html_safe %></div>
 
 <%= link_to "Edit", edit_user_project_path(@user, @project), 
   class: "button" %>

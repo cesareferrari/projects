@@ -1,7 +1,9 @@
 <article class="mx-auto my-2 p-4 bg-slate-100 border rounded-md">
   <h2 class="font-bold text-2xl"><%= project.name %></h2>
 
-  <p><%= project.description %></p>
+  <p>
+  <%= strip_tags(project.description.truncate(200, separator: " ")) %>
+  </p>
 
   <div class="flex flex-row justify-between">
     <%= status_for(project) %>
