@@ -31,6 +31,10 @@
   p {
     @apply mb-8;
   }
+
+  .trix-content a {
+    @apply text-indigo-600 underline;
+  }
 }
 
 
