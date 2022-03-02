@@ -8,8 +8,10 @@
   <div class="flex flex-row justify-between">
     <%= status_for(project) %>
 
+    <span><%= pluralize(project.activities.count, 'activity') %></span>
+
     <%= link_to "view &rarr;".html_safe,
-      user_project_path(user, project),
+      project_path(project),
       class: "uppercase text-sm text-right block" %>
   </div>
 </article>

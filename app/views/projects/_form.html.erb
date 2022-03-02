@@ -1,4 +1,4 @@
-<%= form_with(model: [user, project]) do |f| %>
+<%= form_with(model: project) do |f| %>
 
   <%= render 'shared/errors', object: project %>
 
@@ -9,7 +9,6 @@
 
   <p>
     <%= f.label :description, class: "block" %>
-    <%#= f.rich_text_area :description, class: "w-full h-96" %>
     <%= f.rich_text_area :description %>
   </p>
 

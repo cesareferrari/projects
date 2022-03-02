@@ -6,11 +6,14 @@
   <%= @project.description %>
 </div>
 
-<%= link_to "Edit", edit_user_project_path(@user, @project), 
+<%= link_to "Edit", edit_project_path(@project), 
   class: "button" %>
 
-<h2 class="mt-8 mb-4">Actions</h2>
+<%= link_to "Add activity", new_project_activity_path(@project),
+  class: 'button' %>
 
-<% @actions.each do |action| %>
-  <%= render action %>
+<h2 class="mt-8 mb-4">Activities</h2>
+
+<% @activities.each do |activity| %>
+  <%= render activity %>
 <% end %>

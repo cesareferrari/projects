@@ -1,0 +1,14 @@
+<h2>New activity for <%= @project.name %></h2>
+
+<%= form_with(model: [@project, @activity]) do |f| %>
+
+  <%= render 'shared/errors', object: @activity %>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </p>
+
+  <p><%= f.submit "Create activity", class: 'button' %></p>
+<% end %>
+

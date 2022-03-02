@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   belongs_to :user
-  has_many :actions, dependent: :destroy
+  has_many :activities, dependent: :destroy
 
   has_rich_text :description
 

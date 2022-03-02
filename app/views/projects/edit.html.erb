@@ -1,3 +1,3 @@
 <h1 class="font-bold text-4xl my-8">Edit <%= @project.name %></h1>
 
-<%= render 'form', user: @user, project: @project %>
+<%= render 'form', user: current_user, project: @project %>
