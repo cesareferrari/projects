@@ -3,13 +3,13 @@ class ProjectsController < ApplicationController
   before_action :require_signin
 
   def index
-    # @projects = @user.projects
     @done_projects = @user.projects.done
     @todo_projects = @user.projects.todo
   end
 
   def show
     @project = @user.projects.find(params[:id])
+    @actions = @project.actions
   end
 
   def new

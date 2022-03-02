@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
-  belongs_to :user
   validates :name, presence: true
+
+  belongs_to :user
+  has_many :actions, dependent: :destroy
 
   has_rich_text :description
 

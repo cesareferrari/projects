@@ -1,4 +1,4 @@
-<h1 class="my-8 font-bold text-4xl"><%= @project.name %></h1>
+<h1 class="mb-4 font-bold text-4xl"><%= @project.name %></h1>
 
 <%= status_for(@project) %>
 
@@ -8,3 +8,9 @@
 
 <%= link_to "Edit", edit_user_project_path(@user, @project), 
   class: "button" %>
+
+<h2 class="mt-8 mb-4">Actions</h2>
+
+<% @actions.each do |action| %>
+  <%= render action %>
+<% end %>
