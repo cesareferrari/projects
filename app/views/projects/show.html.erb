@@ -15,5 +15,5 @@
 <h2 class="mt-8 mb-4">Activities</h2>
 
 <% @activities.each do |activity| %>
-  <%= render activity %>
+  <%= render activity, project: @project %>
 <% end %>

@@ -16,6 +16,31 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @activity = @project.activities.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @activity = @project.activities.find(params[:id])
+
+    if @activity.update(activity_params)
+      redirect_to @project, notice: "Activity updated successfully."
+    else
+      flash.now[:alert] = "Please, correct errors below."
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @project = Project.find(params[:project_id])
+    @activity = @project.activities.find(params[:id])
+
+    @activity.destroy
+    redirect_to @project, notice: "Activity Removed."
+  end
+
   private
 
   def activity_params

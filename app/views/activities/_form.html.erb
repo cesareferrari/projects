@@ -1,0 +1,17 @@
+<%= form_with(model: [project, activity]) do |f| %>
+
+  <%= render 'shared/errors', object: activity %>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.rich_text_area :content %>
+  </p>
+
+  <p>
+    <% if activity.persisted? %>
+      <%= f.submit "Update activity", class: "button" %>
+    <% else %>
+      <%= f.submit "Create activity", class: "button" %>
+    <% end %>
+  </p>
+<% end %>
