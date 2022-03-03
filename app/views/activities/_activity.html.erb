@@ -1,6 +1,13 @@
-<div class="p-2 mb-2 bg-slate-200 flex flex-row justify-between">
+<div class="p-2 mb-2 bg-slate-200 flex flex-row justify-between align-start">
   <%= activity.content %>
 
-  <%= link_to "Edit", edit_project_activity_path(project, activity) %>
-  <%= button_to "Remove", project_activity_path(project, activity), method: :delete %>
+  <span class="flex flex-row">
+  <%= link_to "Edit", edit_project_activity_path(project, activity), class: "mr-4 text-sm uppercase" %>
+
+  <%= button_to "Remove", project_activity_path(project, activity),
+    method: :delete, 
+    form: {data: {turbo_confirm: "Are you sure?"}},
+    class: "uppercase text-sm" %>
+  </span>
+
 </div>
