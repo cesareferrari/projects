@@ -12,8 +12,15 @@
 <%= link_to "Add activity", new_project_activity_path(@project),
   class: 'button' %>
 
-<h2 class="mt-8 mb-4">Activities</h2>
+<h2 class="mt-8 mb-4">To do</h2>
 
-<% @activities.each do |activity| %>
+<% @activities_todo.each do |activity| %>
+  <%= render activity, project: @project %>
+<% end %>
+
+
+<h2 class="mt-8 mb-4">Done</h2>
+
+<% @activities_done.each do |activity| %>
   <%= render activity, project: @project %>
 <% end %>

@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  # before_action :set_user
   before_action :require_signin
 
   def index
@@ -9,7 +8,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_user.projects.find(params[:id])
-    @activities = @project.activities
+    @activities_done = @project.activities.done
+    @activities_todo = @project.activities.todo
   end
 
   def new
@@ -45,10 +45,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-
-  # def set_user
-  #   @user = User.find(params[:user_id])
-  # end
 
   def project_params
     params.require(:project).permit(:name, :description, :done, :content)

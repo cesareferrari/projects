@@ -1,13 +1,25 @@
-<div class="p-2 mb-2 bg-slate-200 flex flex-row justify-between align-start">
+<div class="p-2 mb-2 bg-slate-200 flex flex-col justify-between align-start">
   <%= activity.content %>
 
   <span class="flex flex-row">
-  <%= link_to "Edit", edit_project_activity_path(project, activity), class: "mr-4 text-sm uppercase" %>
+    <%= button_to "Edit", edit_project_activity_path(project, activity),
+      method: :get,
+      class: "mr-4 text-sm uppercase" %>
 
-  <%= button_to "Remove", project_activity_path(project, activity),
-    method: :delete, 
-    form: {data: {turbo_confirm: "Are you sure?"}},
-    class: "uppercase text-sm" %>
+    <%= button_to "Remove", project_activity_path(project, activity),
+      method: :delete, 
+      form: {data: {turbo_confirm: "Are you sure?"}},
+      class: "uppercase text-sm mr-4" %>
+
+    <% if activity.done? %>
+      <%= button_to "Reactivate", done_activity_path(activity),
+        method: :delete,
+        class: "uppercase text-sm" %>
+    <% else %>
+      <%= button_to "Done", done_activities_path(activity),
+        class: "uppercase text-sm" %>
+    <% end %>
+
   </span>
 
 </div>
