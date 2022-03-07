@@ -4,7 +4,7 @@ class NextActivitiesController < ApplicationController
   def create
     @project.activities.each { |a| a.update(next: false) }
     @activity.update(next: true)
-    redirect_to @project, notice: "Activity #{@activity.id} marked as next." 
+    redirect_to @project, notice: "Activity marked as next." 
   end
 
   private
