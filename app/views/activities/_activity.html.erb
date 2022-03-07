@@ -23,7 +23,7 @@
         class: "uppercase text-sm mr-4" %>
     <% end %>
 
-    <% unless activity.next? %>
+    <% unless activity.done? || activity.next? %>
       <%= button_to "Make Next", next_activities_path(activity),
         class: "uppercase text-sm" %>
     <% end %>
