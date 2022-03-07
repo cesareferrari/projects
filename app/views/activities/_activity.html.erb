@@ -1,4 +1,7 @@
-<div class="p-2 mb-2 bg-slate-200 flex flex-col justify-between align-start">
+<div id="activity-<%= activity.id %>"
+     class="p-2 mb-2 flex flex-col justify-between align-start
+            <%= activity.next? ? 'bg-amber-200' : 'bg-slate-200' %> ">
+
   <%= activity.content %>
 
   <span class="flex flex-row">
@@ -14,9 +17,14 @@
     <% if activity.done? %>
       <%= button_to "Reactivate", done_activity_path(activity),
         method: :delete,
-        class: "uppercase text-sm" %>
+        class: "uppercase text-sm mr-4" %>
     <% else %>
       <%= button_to "Done", done_activities_path(activity),
+        class: "uppercase text-sm mr-4" %>
+    <% end %>
+
+    <% unless activity.next? %>
+      <%= button_to "Make Next", next_activities_path(activity),
         class: "uppercase text-sm" %>
     <% end %>
 
