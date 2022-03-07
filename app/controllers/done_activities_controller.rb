@@ -2,7 +2,7 @@ class DoneActivitiesController < ApplicationController
   before_action :set_activity
 
   def create
-    @activity.update(done: true)
+    @activity.update(done: true, next: false)
     redirect_to @project, notice: "Activity marked as done." 
   end
 
