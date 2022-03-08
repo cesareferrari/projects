@@ -12,10 +12,17 @@
     <%= f.rich_text_area :description %>
   </p>
 
-  <p>
-    <%= f.label :done, class: 'block' %>
-    <%= f.check_box :done %>
-  </p>
+  <div class="flex flex-row space-x-10">
+    <div>
+      <%= f.label :done, class: 'block' %>
+      <%= f.check_box :done %>
+    </div>
+
+    <div>
+      <%= f.label :priority, class: 'block' %>
+      <%= f.select :priority, [1, 2, 3, 4, 5] %>
+    </div>
+  </div>
 
   <p>
   <% if project.persisted? %>

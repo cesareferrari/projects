@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_08_141833) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "done", default: false
-    t.decimal "priority", default: "5.0"
+    t.integer "priority", default: 5
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
