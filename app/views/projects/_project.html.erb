@@ -1,17 +1,24 @@
 <article class="mx-auto my-2 p-4 bg-slate-100 border rounded-md">
-  <div class="flex flex-row justify-between">
-    <h2 class="font-bold text-2xl"><%= project.name %></h2>
-<div class="w-6 h-6 p-2 rounded-full bg-indigo-400 flex justify-center items-center text-white font-bold text-sm"><%= project.priority %></div>
+
+  <div class="flex flex-row justify-between items-center">
+    <h2 class="font-bold text-xl mt-0"><%= project.name %></h2>
+
+    <div class="flex space-x-6">
+      <div class="w-6 h-6 p-2 rounded-full bg-indigo-400 flex justify-center
+                items-center text-white font-bold text-sm">
+        <%= project.priority %>
+      </div>
+    </div>
   </div>
 
-  <p>
+  <span class="mb-2 block">
     <%= truncate(strip_tags(project.description.to_s), length: 200, separator: " ") %>
-  </p>
+  </span>
 
-  <div class="flex flex-row justify-between">
-    <%= status_for(project) %>
-
-    <span><%= pluralize(project.activities.count, 'activity') %></span>
+  <div class="flex flex-row justify-between items-center">
+    <span class="font-bold uppercase text-xs">
+      <%= pluralize(project.activities.count, 'activity') %>
+    </span>
 
     <%= link_to "view &rarr;".html_safe,
       project_path(project),

@@ -1,9 +1,16 @@
-<div class="flex flex-row justify-between align-center">
-<h1 class="mb-4 font-bold text-4xl"><%= @project.name %></h1>
-<div class="w-10 h-10 rounded-full bg-indigo-400 flex justify-center items-center text-white font-bold"><%= @project.priority %></div>
+<div class="flex flex-row justify-between items-center">
+  <h1 class="mb-4 font-bold text-3xl"><%= @project.name %></h1>
+
+  <div class="flex space-x-6 items-center">
+    <%= status_for(@project) %>
+
+    <div class="w-10 h-10 rounded-full bg-indigo-400 flex justify-center
+                items-center text-white font-bold">
+      <%= @project.priority %>
+    </div>
+  </div>
 </div>
 
-<%= status_for(@project) %>
 
 <div>
   <%= @project.description %>
@@ -15,15 +22,18 @@
 <%= link_to "Add activity", new_project_activity_path(@project),
   class: 'button' %>
 
-<h2 class="mt-8 mb-4">To do</h2>
+<% unless @activities_todo.empty? %>
+  <h2 class="mt-8 mb-4">To do</h2>
 
-<% @activities_todo.each do |activity| %>
-  <%= render activity, project: @project %>
+  <% @activities_todo.each do |activity| %>
+    <%= render activity, project: @project %>
+  <% end %>
 <% end %>
 
+<% unless @activities_done.empty? %>
+  <h2 class="mt-8 mb-4">Done</h2>
 
-<h2 class="mt-8 mb-4">Done</h2>
-
-<% @activities_done.each do |activity| %>
-  <%= render activity, project: @project %>
+  <% @activities_done.each do |activity| %>
+    <%= render activity, project: @project %>
+  <% end %>
 <% end %>

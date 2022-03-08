@@ -1,4 +1,4 @@
-<h1 class="font-bold text-4xl my-8">Current Projects</h1>
+<h1 class="font-bold text-4xl my-8">Active Projects</h1>
 
 <% @todo_projects.each do |project| %>
   <%= render project, user: current_user %>
@@ -10,5 +10,5 @@
 <h2 class="font-bold text-3xl mt-8 mb-4">Done Projects</h1>
 
 <% @done_projects.each do |project| %>
-  <%= render project, user: current_user %>
+  <%= render "done_project", project: project, user: current_user %>
 <% end %>

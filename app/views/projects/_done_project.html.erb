@@ -1,0 +1,13 @@
+<article class="mx-auto my-2 p-2 bg-slate-100 rounded-md">
+  <h2 class="font-bold text-xl my-0 text-slate-600"><%= project.name %></h2>
+
+  <div class="flex flex-row justify-between">
+  <span>
+    <%= truncate(strip_tags(project.description.to_s), length: 100, separator: " ") %>
+  </span>
+
+  <%= link_to "view &rarr;".html_safe,
+    project_path(project),
+    class: "uppercase text-sm text-right block" %>
+  </div>
+</article>
