@@ -1,9 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Website redesign
+  done: false
+  priority: 3
   user: cesare
 
 two:
-  name: MyString
+  name: SEO optimization
+  done: false
+  priority: 1
+  user: cesare
+
+three:
+  name: Write article
+  done: false
+  priority: 5
   user: cesare
