@@ -29,3 +29,8 @@
   padding: 0 !important;
   max-width: 100% !important;
 }
+
+.trix-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
