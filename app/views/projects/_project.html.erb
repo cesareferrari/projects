@@ -17,7 +17,7 @@
 
   <div class="flex flex-row justify-between items-center">
     <span class="font-bold uppercase text-xs">
-      <%= pluralize(project.activities.count, 'activity') %>
+      <%= pluralize(project.activities.todo.count, 'activity') %>
     </span>
 
     <%= link_to "view &rarr;".html_safe,
