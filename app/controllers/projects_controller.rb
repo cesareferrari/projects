@@ -2,8 +2,7 @@ class ProjectsController < ApplicationController
   before_action :require_signin
 
   def index
-    @done_projects = current_user.projects.done
-    @todo_projects = current_user.projects.todo
+    @projects = current_user.projects.todo
   end
 
   def show

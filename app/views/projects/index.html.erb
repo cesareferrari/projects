@@ -1,14 +1,13 @@
-<h1 class="font-bold text-4xl my-8">Active Projects</h1>
+<div class="mb-4 space-y-4 flex flex-col md:flex-row items-start md:items-center justify-between w-full">
+  <h1 class="font-bold text-4xl mx-auto md:mx-0">Active Projects</h1>
+  <%= link_to "New project", new_project_path, class: "button w-1/2 md:w-auto md:mx-0 mx-auto" %>
+</div>
 
-<% @todo_projects.each do |project| %>
+<% @projects.each do |project| %>
   <%= render project, user: current_user %>
 <% end %>
 
-<%= link_to "New project", new_project_path, class: "button" %>
+<div class="flex flex-row justify-end w-full mb-8">
+  <%= link_to "New project", new_project_path, class: "button w-1/2 md:w-auto md:mx-0 mx-auto" %>
+</div>
 
-
-<h2 class="font-bold text-3xl mt-8 mb-4">Done Projects</h1>
-
-<% @done_projects.each do |project| %>
-  <%= render "done_project", project: project, user: current_user %>
-<% end %>

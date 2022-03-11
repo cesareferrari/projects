@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+  resources :done_projects, only: :index
+
   post 'done_activities/:id', to: "done_activities#create", as: :done_activities
   delete 'done_activities/:id', to: "done_activities#destroy", as: :done_activity
 
