@@ -31,9 +31,9 @@
 <% end %>
 
 <% unless @activities_done.empty? %>
-  <h2 class="mt-8 mb-4">Done</h2>
+  <h2 class="mt-8 mb-4 text-slate-500">Done</h2>
 
   <% @activities_done.each do |activity| %>
-    <%= render activity, project: @project %>
+    <%= render "activities/activity_done", activity: activity, project: @project %>
   <% end %>
 <% end %>

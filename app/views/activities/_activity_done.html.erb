@@ -1,6 +1,5 @@
 <div id="activity-<%= activity.id %>"
-     class="p-2 mb-2 flex flex-col justify-between align-start
-  <%= activity.next? ? 'bg-amber-200 border-l-8 border-l-amber-400' : 'bg-slate-200' %> ">
+     class="p-2 mb-2 flex flex-col justify-between align-start bg-slate-100 text-slate-500">
 
   <%= activity.content %>
 
@@ -14,14 +13,10 @@
       form: {data: {turbo_confirm: "This item will be deleted. Are you sure?"}},
       class: "uppercase text-sm" %>
 
-      <%= button_to done_icon, done_activities_path(activity),
+      <%= button_to reactivate_icon, done_activity_path(activity),
+        method: :delete,
         class: "uppercase text-sm" %>
 
-    <% unless activity.next? %>
-      <%= button_to make_next_icon, next_activities_path(activity),
-        class: "uppercase text-sm" %>
-    <% end %>
-
-    <span class="text-xs">Created <%= time_ago_in_words(activity.created_at) %> ago</span>
+    <span class="text-xs">Done <%= time_ago_in_words(activity.updated_at) %> ago</span>
   </span>
 </div>
