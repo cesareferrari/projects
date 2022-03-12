@@ -4,6 +4,7 @@ class Activity < ApplicationRecord
   belongs_to :project
   has_rich_text :content
 
-  scope :todo, -> { where(done: false).order(next: :desc) }
+  scope :next, -> { where(next: true) }
+  scope :todo, -> { where(next: false, done: false).order(created_at: :asc) }
   scope :done, -> { where(done: true).order(updated_at: :desc) }
 end

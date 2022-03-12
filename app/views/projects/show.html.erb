@@ -12,7 +12,7 @@
 </div>
 
 
-<div>
+<div class="mb-8">
   <%= @project.description %>
 </div>
 
@@ -22,18 +22,22 @@
 <%= link_to "Add activity", new_project_activity_path(@project),
   class: 'button' %>
 
-<% unless @activities_todo.empty? %>
   <h2 class="mt-8 mb-4">To do</h2>
 
-  <% @activities_todo.each do |activity| %>
+  <%= render("activities/activity", project: @project, activity: @next) if @next %>
+
+<% if @todos.empty? %>
+  <p>Nothing to do.</p>
+<% else %>
+  <% @todos.each do |activity| %>
     <%= render activity, project: @project %>
   <% end %>
 <% end %>
 
-<% unless @activities_done.empty? %>
+<% unless @dones.empty? %>
   <h2 class="mt-8 mb-4 text-slate-500">Done</h2>
 
-  <% @activities_done.each do |activity| %>
+  <% @dones.each do |activity| %>
     <%= render "activities/activity_done", activity: activity, project: @project %>
   <% end %>
 <% end %>
