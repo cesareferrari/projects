@@ -7,5 +7,5 @@ class Project < ApplicationRecord
   has_rich_text :description
 
   scope :todo, -> { where(done: false).order(:priority) }
-  scope :done, -> { where(done: true) }
+  scope :done, -> { where(done: true).order(updated_at: :desc) }
 end
