@@ -11,11 +11,11 @@ module ProjectsHelper
   def date_for(project)
     if project.done?
       return content_tag(:span,
-                       "done on #{project.updated_at.to_s(:default)}",
+                       "done on #{project.updated_at.to_fs}",
                         class: "uppercase text-xs")
     end
 
-    content_tag(:span, project.created_at.to_s(:default),
+    content_tag(:span, project.created_at.to_fs,
                 class: "uppercase text-xs")
   end
 
