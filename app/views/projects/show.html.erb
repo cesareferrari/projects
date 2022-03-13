@@ -16,11 +16,17 @@
   <%= @project.description %>
 </div>
 
-<%= link_to "Edit", edit_project_path(@project), 
-  class: "button" %>
+<div class="flex flex-row space-x-4">
+  <%= link_to "Edit", edit_project_path(@project), 
+    class: "button" %>
 
-<%= link_to "Add activity", new_project_activity_path(@project),
-  class: 'button' %>
+  <%= link_to "Add activity", new_project_activity_path(@project),
+    class: 'button' %>
+
+  <%= button_to "Remove", project_path(@project), method: :delete,
+    form: {data: {turbo_confirm: "This project and all its activities will be deleted. Are you sure?"}},
+    class: 'button' %>
+</div>
 
   <h2 class="mt-8 mb-4">To do</h2>
 
