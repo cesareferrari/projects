@@ -28,7 +28,7 @@ module ProjectsHelper
 
   def cover(project)
     if project.cover.attached?
-      image_tag project.cover
+      image_tag project.cover.variant(resize_to_limit: [150, nil])
     else
       image_tag "placeholder.png"
     end
