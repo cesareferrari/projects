@@ -25,4 +25,12 @@ module ProjectsHelper
               class: "w-6 h-6 p-2 rounded-full bg-indigo-400 flex justify-center items-center text-white font-bold text-sm" )
     end
   end
+
+  def cover(project)
+    if project.cover.attached?
+      image_tag project.cover
+    else
+      image_tag "placeholder.png"
+    end
+  end
 end

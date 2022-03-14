@@ -3,6 +3,7 @@ class Project < ApplicationRecord
 
   belongs_to :user
   has_many :activities, dependent: :destroy
+  has_one_attached :cover
 
   has_rich_text :description
 

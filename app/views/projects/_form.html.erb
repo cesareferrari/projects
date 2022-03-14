@@ -22,6 +22,11 @@
       <%= f.label :priority, class: 'block' %>
       <%= f.select :priority, [1, 2, 3, 4, 5] %>
     </div>
+
+    <div>
+      <%= f.label :cover, class: 'block' %>
+      <%= f.file_field :cover %>
+    </div>
   </div>
 
   <p class="mt-8">
