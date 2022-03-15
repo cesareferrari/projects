@@ -1,34 +1,38 @@
-<div class="flex flex-col md:flex-row md:justify-between">
+<div class="flex flex-col md:flex-row md:space-x-8">
   <%= cover(@project) %>
 
-  <h1 class="my-2 md:mb-4 font-bold text-3xl"><%= @project.name %></h1>
+  <div class="flex flex-col">
+    <%= date_for(@project) %>
 
-  <div class="flex flex-row space-x-4 items-center justify-start mb-4">
-    <%= priority_for(@project) %>
-    <%= status_for(@project) %>
+    <h1 class="my-2 font-bold text-2xl md:text-3xl"><%= @project.name %></h1>
+
+    <div class="flex flex-row space-x-4 items-center justify-start mb-6">
+      <%= priority_for(@project) %>
+      <%= status_for(@project) %>
+    </div>
+
+    <div class="flex flex-row space-x-4">
+      <%= link_to "Add activity", new_project_activity_path(@project),
+        class: 'button' %>
+
+      <%= link_to "Edit", edit_project_path(@project), 
+        class: "button" %>
+
+      <%= button_to "Remove", project_path(@project), method: :delete,
+        form: {data: {turbo_confirm: "This project and all its activities will be deleted. Are you sure?"}},
+        class: 'button' %>
+    </div>
+
   </div>
 </div>
 
-
-<div class="mb-8">
+<div class="my-8">
   <%= @project.description %>
 </div>
 
-<div class="flex flex-row space-x-4">
-  <%= link_to "Edit", edit_project_path(@project), 
-    class: "button" %>
+<h2 class="mt-8 mb-4">To do</h2>
 
-  <%= link_to "Add activity", new_project_activity_path(@project),
-    class: 'button' %>
-
-  <%= button_to "Remove", project_path(@project), method: :delete,
-    form: {data: {turbo_confirm: "This project and all its activities will be deleted. Are you sure?"}},
-    class: 'button' %>
-</div>
-
-  <h2 class="mt-8 mb-4">To do</h2>
-
-  <%= render("activities/activity", project: @project, activity: @next) if @next %>
+<%= render("activities/activity", project: @project, activity: @next) if @next %>
 
 <% if @todos.empty? %>
   <p>Nothing to do.</p>
