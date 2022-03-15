@@ -1,15 +1,11 @@
 <div class="flex flex-col md:flex-row md:justify-between">
-  <h1 class="mb-2 md:mb-4 font-bold text-3xl"><%= @project.name %></h1>
-
   <%= cover(@project) %>
 
-  <div class="flex flex-row space-x-4 items-center justify-start mb-4">
-    <%= status_for(@project) %>
+  <h1 class="my-2 md:mb-4 font-bold text-3xl"><%= @project.name %></h1>
 
-    <div class="w-8 h-8 rounded-full bg-indigo-400 flex justify-center
-                items-center text-white font-bold">
-      <%= @project.priority %>
-    </div>
+  <div class="flex flex-row space-x-4 items-center justify-start mb-4">
+    <%= priority_for(@project) %>
+    <%= status_for(@project) %>
   </div>
 </div>
 
