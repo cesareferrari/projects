@@ -27,7 +27,7 @@ module ProjectsHelper
   end
 
   def cover(project)
-    classes = "object-cover h-60 mb-4 md:mb-0 md:h-40"
+    classes = "object-cover h-60 md:w-40 md:h-40 md:object-none mb-4 md:mb-0"
 
     if project.cover.attached?
       image_tag project.cover.variant(resize_to_limit: [200, 300]), class: classes
