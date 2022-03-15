@@ -1,3 +1,16 @@
-<div class="bg-slate-800 text-white text-xs uppercase p-8 text-center">
+<div class="py-4 bg-slate-800 text-white">
+  <nav class="flex flex-row text-sm uppercase justify-center space-x-4 mx-auto">
+
+    <% if current_user %>
+      <%= link_to current_user.name, current_user, class: "hover:text-amber-200" %>
+      <%= link_to "My Projects", projects_path, class: "hover:text-amber-200" %>
+      <%= link_to "Done Projects", done_projects_path, class: "hover:text-amber-200" %>
+    <% else %>
+      <%= link_to "Sign in", new_session_path %> 
+    <% end %>
+  </nav>
+</div>
+
+<div class="py-4 text-white bg-slate-900 text-xs uppercase text-center">
   &copy; 2022 - Cesare Ferrari - all rights reserved
 </div>
