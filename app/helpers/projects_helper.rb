@@ -30,7 +30,7 @@ module ProjectsHelper
     classes = "object-cover h-60 md:w-40 md:h-40 md:object-none mb-4 md:mb-0"
 
     if project.cover.attached?
-      image_tag project.cover.variant(resize_to_limit: [200, 300]), class: classes
+      image_tag project.cover.variant(resize_to_limit: [480, 480]), class: classes
     else
       image_tag "placeholder200x300.png", class: classes
     end
