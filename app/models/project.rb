@@ -1,4 +1,17 @@
 class Project < ApplicationRecord
+  BG_COLORS = %w[
+    bg-amber-200
+    bg-amber-300
+    bg-indigo-200
+    bg-indigo-300
+    bg-purple-300
+    bg-stone-400
+    bg-red-300
+    bg-orange-300
+    bg-emerald-300
+    bg-cyan-300
+  ]
+
   validates :name, presence: true
   validate :acceptable_cover
 
