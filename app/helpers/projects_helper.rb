@@ -30,13 +30,11 @@ module ProjectsHelper
   def cover(project)
     classes = "object-cover h-60 md:w-40 md:h-40 md:object-none mb-4 md:mb-0"
     bg_color = Project::BG_COLORS[project.name.size.digits.first]
-    placeholder_classes = "#{classes} rounded flex justify-center items-center text-9xl font-bold text-indigo-500 #{bg_color}"
+    placeholder_classes = "#{bg_color} #{classes} rounded flex justify-center items-center text-9xl font-bold text-indigo-500"
 
     if project.cover.attached?
       image_tag project.cover.variant(resize_to_limit: [480, 480]), class: classes
     else
-      # image_tag "placeholder200x300.png", class: classes
-      # content_tag(:div, project.name[0, 2], class: "#{classes} rounded flex justify-center items-center text-9xl font-bold text-indigo-500 #{bg_color}")
       content_tag(:div, project.name[0, 2], class: placeholder_classes)
     end
   end
