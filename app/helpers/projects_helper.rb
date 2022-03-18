@@ -42,9 +42,8 @@ module ProjectsHelper
   def cover(project)
     classes = "object-cover h-60 md:w-40 md:h-40 md:object-none mb-4 md:mb-0"
     bg_color = BG_COLORS[project.name.size.digits.first]
-    # bg_color = "bg-indigo-300"
 
-    placeholder_classes = "#{bg_color} #{classes} rounded flex justify-center items-center text-9xl font-bold text-indigo-500"
+    placeholder_classes = "#{bg_color} #{classes} rounded flex justify-center items-center text-[220px] tracking-[-20px] overflow-hidden font-bold text-indigo-500"
 
     if project.cover.attached?
       image_tag project.cover.variant(resize_to_limit: [480, 480]), class: classes
