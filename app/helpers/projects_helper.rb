@@ -1,4 +1,16 @@
 module ProjectsHelper
+  BG_COLORS = %w[
+    bg-amber-200
+    bg-amber-300
+    bg-indigo-200
+    bg-indigo-300
+    bg-purple-300
+    bg-stone-400
+    bg-red-300
+    bg-orange-300
+    bg-emerald-300
+    bg-cyan-300
+  ]
 
   def status_for(project)
     classes = %w(inline-block px-2 py-1 text-xs uppercase text-white bg-indigo-600 rounded-sm)
@@ -29,7 +41,9 @@ module ProjectsHelper
 
   def cover(project)
     classes = "object-cover h-60 md:w-40 md:h-40 md:object-none mb-4 md:mb-0"
-    bg_color = Project::BG_COLORS[project.name.size.digits.first]
+    bg_color = BG_COLORS[project.name.size.digits.first]
+    # bg_color = "bg-indigo-300"
+
     placeholder_classes = "#{bg_color} #{classes} rounded flex justify-center items-center text-9xl font-bold text-indigo-500"
 
     if project.cover.attached?
