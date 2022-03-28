@@ -11,6 +11,10 @@ class Project < ApplicationRecord
   scope :todo, -> { where(done: false).order(:priority) }
   scope :done, -> { where(done: true).order(updated_at: :desc) }
 
+  def todos_count
+    activities.where(done: false).count
+  end
+
   private
 
   def acceptable_cover
