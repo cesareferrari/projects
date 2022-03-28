@@ -3,5 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @activities = Activity.next_todos_for(@user)
   end
 end

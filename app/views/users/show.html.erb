@@ -1,3 +1,13 @@
-
 <%= profile_image(@user) %>
 <h1 class="font-bold text-4xl"><%= @user.name %></h1>
+
+<h2>Next Activities</h2>
+
+<% @activities.each do |activity| %>
+  <div class="border-b border-sky-500 my-2 py-2">
+    <h3 class="text-xs uppercase text-slate-500 font-bold tracking-wide">
+      <%= link_to activity.project.name, activity.project %>
+    </h3>
+    <%= activity.content %>
+  </div>
+<% end %>
