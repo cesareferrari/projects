@@ -34,9 +34,7 @@
 
 <%= render("activities/activity", project: @project, activity: @next) if @next %>
 
-<% if @todos.empty? %>
-  <p>Nothing to do.</p>
-<% else %>
+<% unless @todos.empty? %>
   <% @todos.each do |activity| %>
     <%= render activity, project: @project %>
   <% end %>
