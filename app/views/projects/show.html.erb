@@ -32,11 +32,13 @@
   <%= @project.description %>
 </div>
 
-<h2 class="mt-8 mb-4">To do</h2>
-
-<%= render("activities/activity", project: @project, activity: @next) if @next %>
+<% if @next %>
+  <h2 class="mt-8 mb-4">To do</h2>
+<%= render("activities/activity", project: @project, activity: @next) %>
+<% end %>
 
 <% unless @todos.empty? %>
+  <h2 class="mt-8 mb-4">To do</h2>
   <% @todos.each do |activity| %>
     <%= render activity, project: @project %>
   <% end %>
