@@ -11,5 +11,6 @@ class Activity < ApplicationRecord
                                      where("project.done" => false,
                                             "project.user_id" => user.id,
                                             done: false,
-                                            next: true) }
+                                            next: true).
+                                            order("project.priority") }
 end
