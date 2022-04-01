@@ -5,9 +5,9 @@
 
 <% @activities.each do |activity| %>
   <div class="border-b border-sky-500 my-2 py-2">
-    <h3 class="text-xs uppercase text-slate-500 font-bold tracking-wide">
-      <%= link_to activity.project.name, activity.project %> 
+    <h3 class="flex flex-row items-center space-x-4 text-xs uppercase text-slate-500 font-bold tracking-wide">
       <%= priority_for(activity.project) %>
+      <%= link_to activity.project.name, activity.project %> 
     </h3>
     <%= activity.content %>
   </div>
