@@ -18,9 +18,11 @@
       <%= link_to "Edit", edit_project_path(@project), 
         class: "button" %>
 
-      <%= button_to "Remove", project_path(@project), method: :delete,
+      <% if @project.done? %>
+        <%= button_to "Remove", project_path(@project), method: :delete,
         form: {data: {turbo_confirm: "This project and all its activities will be deleted. Are you sure?"}},
         class: 'button' %>
+      <% end %>
     </div>
 
   </div>
