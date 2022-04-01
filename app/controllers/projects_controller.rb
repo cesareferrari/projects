@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = current_user.projects.find(params[:id])
     @project.destroy
-    redirect_to projects_url, notice: "Project removed."
+    redirect_to done_projects_url, notice: "Project removed."
   end
 
   private
