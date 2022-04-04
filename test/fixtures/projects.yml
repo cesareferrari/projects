@@ -17,3 +17,9 @@ three:
   done: false
   priority: 5
   user: cesare
+
+done_project:
+  name: Done project
+  done: true
+  priority: 5
+  user: cesare

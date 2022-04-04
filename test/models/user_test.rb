@@ -20,4 +20,8 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?, 'user is valid without an email'
     assert_not_nil @user.errors[:email], 'no validation error for email present'
   end
+
+  test '#projects' do
+    assert_equal 4, @user.projects.size
+  end
 end

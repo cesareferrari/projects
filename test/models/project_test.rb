@@ -15,4 +15,14 @@ class ProjectTest < ActiveSupport::TestCase
 
     assert_equal sort_order, projects
   end
+
+  test '#todo' do
+    assert_includes Project.todo, projects(:one)
+    refute_includes Project.todo, projects(:done_project)
+  end
+
+  test '#done' do
+    assert_includes Project.done, projects(:done_project)
+    refute_includes Project.done, projects(:one)
+  end
 end
