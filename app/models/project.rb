@@ -1,7 +1,10 @@
 class Project < ApplicationRecord
+  before_validation :assign_default_category
+
   validates :name, presence: true
   validate :acceptable_cover
 
+  belongs_to :category
   belongs_to :user
   has_many :activities, dependent: :destroy
   has_one_attached :cover
@@ -27,6 +30,12 @@ class Project < ApplicationRecord
     acceptable_types = ["image/jpeg", "image/png"]
     unless acceptable_types.include?(cover.content_type)
       errors.add(:cover, "must be a JPEG or PNG")
+    end
+  end
+
+  def assign_default_category
+    if category.nil?
+      self.category = Category.find_by(name: "Administration")
     end
   end
 end

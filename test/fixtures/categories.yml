@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+administration:
+  name: Administration
+
+work:
+  name: Work
+
+learn:
+  name: Learn
+
+marketing:
+  name: Marketing
