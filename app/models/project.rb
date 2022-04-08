@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  before_validation :assign_default_category
+  before_validation :assign_default_category, on: :create
 
   validates :name, presence: true
   validate :acceptable_cover
