@@ -19,7 +19,7 @@
 
     <% unless activity.next? %>
       <%= button_to make_next_icon, next_activities_path(activity),
-        class: "uppercase text-sm" %>
+        class: "uppercase text-sm", id: "make-next" %>
     <% end %>
 
     <span class="text-xs">Created <%= time_ago_in_words(activity.created_at) %> ago</span>

@@ -72,6 +72,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # gem 'pry', '~> 0.14.1'
 end
 
 gem "aws-sdk-s3", require: false
