@@ -16,5 +16,6 @@ class ActiveSupport::TestCase
     fill_in "Email", with: user.email
     fill_in "Password", with: password
     click_button "Sign in"
+    sleep(inspection_time=4) # if I don't add sleep it seems to go too fast.
   end
 end

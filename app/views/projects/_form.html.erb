@@ -24,6 +24,13 @@
     </div>
 
     <div>
+      <%= f.label :category_id, class: 'block' %>
+      <%= f.collection_select :category_id,
+        Category.all.order(:name), :id, :name,
+        selected: project.category_id %>
+    </div>
+
+    <div>
       <%= f.label :cover, class: 'block' %>
       <%= f.file_field :cover %>
     </div>
