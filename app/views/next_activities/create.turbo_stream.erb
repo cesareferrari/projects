@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "next_activity", partial: "activities/activity", locals: {activity: @activity, project: @project} %>
+
+<%#= turbo_stream.update "activities", partial: "activities/activity", locals: {activity: @activity, project: @project, todos: @todos} %>

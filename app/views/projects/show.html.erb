@@ -13,6 +13,7 @@
 
     <div class="flex flex-row space-x-4">
       <%= link_to "Add activity", new_project_activity_path(@project),
+        data: { turbo_frame: dom_id(Activity.new) },
         class: 'button' %>
 
       <%= link_to "Edit", edit_project_path(@project), 
@@ -32,15 +33,21 @@
   <%= @project.description %>
 </div>
 
-<% if @next %>
-  <h2 class="mt-8 mb-4">Next</h2>
-<%= render("activities/activity", project: @project, activity: @next) %>
+<%= turbo_frame_tag Activity.new %>
+
+<%= turbo_frame_tag "next_activity" do %>
+  <% if @next %>
+    <h2 class="mt-8 mb-4">Next</h2>
+  <%= render("activities/activity", project: @project, activity: @next) %>
+  <% end %>
 <% end %>
 
-<% unless @todos.empty? %>
-  <h2 class="mt-8 mb-4">To do</h2>
-  <% @todos.each do |activity| %>
-    <%= render activity, project: @project %>
+<%= turbo_frame_tag "activities" do %>
+  <% unless @todos.empty? %>
+    <h2 class="mt-8 mb-4">To do</h2>
+    <% @todos.each do |activity| %>
+      <%= render activity, project: @project %>
+    <% end %>
   <% end %>
 <% end %>
 

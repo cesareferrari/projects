@@ -1,0 +1,4 @@
+<%= turbo_stream.append "activities",
+  partial: "activities/activity",
+  locals: {activity: @activity, project: @project} %>
+<%= turbo_stream.update Activity.new, "" %>

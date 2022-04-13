@@ -1,3 +1,5 @@
 <h2>New activity for <%= @project.name %></h2>
 
-<%= render "form", project: @project, activity: @activity %>
+<%= turbo_frame_tag @activity do %>
+  <%= render "form", project: @project, activity: @activity %>
+<% end %>

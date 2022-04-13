@@ -8,6 +8,16 @@ class ActivitiesTest < ApplicationSystemTestCase
   end
 
   test "creating a new activity" do
+    visit project_url(@project)
+    click_on "Add activity"
+
+    # fill_in_trix_editor "activity_content", with: "Create UI design"
+    find('trix-editor').click.set('Create UI design')
+
+    assert_selector "h1", text: @project.name
+    click_on "Create activity"
+    assert_selector "h1", text: @project.name
+    assert_text "Create UI design"
   end
 
   test "activity can be set to next" do

@@ -9,7 +9,10 @@ class ActivitiesController < ApplicationController
     @activity = @project.activities.new(activity_params)
 
     if @activity.save
-      redirect_to @project, notice: "Activity created successfully."
+      respond_to do |format|
+        format.html {redirect_to @project, notice: "Activity created successfully."}
+        format.turbo_stream
+      end
     else
       flash.now[:alert] = "Please, correct errors below."
       render :new, status: :unprocessable_entity

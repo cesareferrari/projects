@@ -19,6 +19,7 @@
 
     <% unless activity.next? %>
       <%= button_to make_next_icon, next_activities_path(activity),
+        data: { turbo_frame: "next_activity" },
         class: "uppercase text-sm", id: "make-next" %>
     <% end %>
 

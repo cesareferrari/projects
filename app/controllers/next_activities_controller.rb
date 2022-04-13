@@ -4,7 +4,11 @@ class NextActivitiesController < ApplicationController
   def create
     @project.activities.each { |a| a.update(next: false) }
     @activity.update(next: true)
-    redirect_to @project, notice: "Activity marked as next." 
+
+    respond_to do |format|
+      format.html { redirect_to @project, notice: "Activity marked as next." }
+      format.turbo_stream
+    end
   end
 
   private
