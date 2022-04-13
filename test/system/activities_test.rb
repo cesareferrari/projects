@@ -4,16 +4,19 @@ class ActivitiesTest < ApplicationSystemTestCase
   setup do
     @user = users(:cesare) # from fixtures
     login(@user, 'secret')
+    @project = @user.projects.create!(name: "Develop new website")
+  end
+
+  test "creating a new activity" do
   end
 
   test "activity can be set to next" do
-    project = @user.projects.create!(name: "Develop new website")
-    activity_one = project.activities.create!(content: "first activity")
-    activity_two = project.activities.create!(content: "second activity")
+    activity_one = @project.activities.create!(content: "first activity")
+    activity_two = @project.activities.create!(content: "second activity")
 
     refute activity_one.next?
 
-    visit project_url(project)
+    visit project_url(@project)
 
     assert_selector "h1", text: "Develop new website"
 
