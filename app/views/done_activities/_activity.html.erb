@@ -15,6 +15,7 @@
 
       <%= button_to reactivate_icon, done_activity_path(activity),
         method: :delete,
+        data: {turbo_frame: "activities"},
         class: "uppercase text-sm" %>
 
     <span class="text-xs">Done <%= time_ago_in_words(activity.updated_at) %> ago</span>

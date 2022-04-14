@@ -37,19 +37,13 @@
 <%= turbo_frame_tag Activity.new %>
 
 <h2 class="mt-8 mb-4">To do</h2>
-
 <%= turbo_frame_tag "activities" do %>
   <%= render "activities/activities", activities: @activities, project: @project %>
 <% end %>
 
-<% unless @dones.empty? %>
-  <h2 class="mt-8 mb-4 text-slate-500">Done</h2>
 
-  <% @dones.each do |activity| %>
-
-    <%= turbo_frame_tag "done_activities" do %>
-      <%= render "done_activities/activity", activity: activity, project: @project %>
-    <% end %>
-
-  <% end %>
+<h2 class="mt-8 mb-4 text-slate-500">Done</h2>
+<%= turbo_frame_tag "done_activities" do %>
+  <%= render "done_activities/activities", activities: @done_activities, project: @project %>
 <% end %>
+

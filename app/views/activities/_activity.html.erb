@@ -16,6 +16,7 @@
 
     <%= button_to done_icon,
       done_activities_path(activity),
+        data: {turbo_frame: "done_activities"},
         class: "uppercase text-sm" %>
 
     <% unless activity.next? %>
