@@ -9,8 +9,6 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find(params[:id])
     @activities = @project.activities.todo
     @done_activities = @project.activities.done
-    # @todos = @project.activities.todo
-    # @next = @project.activities.next.first
   end
 
   def new
