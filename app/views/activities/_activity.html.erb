@@ -1,3 +1,5 @@
+<%= turbo_frame_tag activity do %>
+
 <div id="activity-<%= activity.id %>"
      class="p-2 mb-2 flex flex-col justify-between align-start
   <%= activity.next? ? 'bg-amber-200 border-l-8 border-l-amber-400' : 'bg-slate-200' %> ">
@@ -7,6 +9,7 @@
   <span class="flex flex-row space-x-4 items-center pt-2">
     <%= button_to edit_icon,
       edit_project_activity_path(project, activity),
+      data: {turbo_frame: @activity},
       method: :get %>
 
     <%= button_to remove_icon, project_activity_path(project, activity),
@@ -28,3 +31,5 @@
     <span class="text-xs">Created <%= time_ago_in_words(activity.created_at) %> ago</span>
   </span>
 </div>
+
+<% end %>

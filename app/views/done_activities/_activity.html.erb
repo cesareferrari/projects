@@ -1,3 +1,5 @@
+<%= turbo_frame_tag activity do %>
+
 <div id="activity-<%= activity.id %>"
      class="p-2 mb-2 flex flex-col justify-between align-start bg-slate-100 text-slate-500">
 
@@ -21,3 +23,5 @@
     <span class="text-xs">Done <%= time_ago_in_words(activity.updated_at) %> ago</span>
   </span>
 </div>
+
+<% end %>

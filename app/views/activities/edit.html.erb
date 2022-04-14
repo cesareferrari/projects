@@ -1,4 +1,6 @@
 <h2>Edit activity</h2>
 
-<%= render "form", project: @project, activity: @activity %>
+<%= turbo_frame_tag @activity do %>
+  <%= render "form", project: @project, activity: @activity %>
+<% end %>
 
