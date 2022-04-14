@@ -12,7 +12,11 @@ class DoneActivitiesController < ApplicationController
 
   def destroy
     @activity.update(done: false)
-    redirect_to @project, notice: "Activity reactivated." 
+
+    respond_to do |format|
+      format.html { redirect_to @project, notice: "Activity reactivated." }
+      format.turbo_stream
+    end
   end
 
   private
