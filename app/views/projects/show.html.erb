@@ -48,7 +48,7 @@
   <% @dones.each do |activity| %>
 
     <%= turbo_frame_tag "done_activities" do %>
-      <%= render "activities/activity_done", activity: activity, project: @project %>
+      <%= render "done_activities/activity", activity: activity, project: @project %>
     <% end %>
 
   <% end %>
