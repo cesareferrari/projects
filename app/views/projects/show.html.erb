@@ -12,7 +12,8 @@
     </div>
 
     <div class="flex flex-row space-x-4">
-      <%= link_to "Add activity", new_project_activity_path(@project),
+      <%= link_to "Add activity",
+        new_project_activity_path(@project),
         data: { turbo_frame: dom_id(Activity.new) },
         class: 'button' %>
 
@@ -35,26 +36,20 @@
 
 <%= turbo_frame_tag Activity.new %>
 
-<%= turbo_frame_tag "next_activity" do %>
-  <% if @next %>
-    <h2 class="mt-8 mb-4">Next</h2>
-  <%= render("activities/activity", project: @project, activity: @next) %>
-  <% end %>
-<% end %>
+<h2 class="mt-8 mb-4">To do</h2>
 
 <%= turbo_frame_tag "activities" do %>
-  <% unless @todos.empty? %>
-    <h2 class="mt-8 mb-4">To do</h2>
-    <% @todos.each do |activity| %>
-      <%= render activity, project: @project %>
-    <% end %>
-  <% end %>
+  <%= render "activities/activities", activities: @activities, project: @project %>
 <% end %>
 
 <% unless @dones.empty? %>
   <h2 class="mt-8 mb-4 text-slate-500">Done</h2>
 
   <% @dones.each do |activity| %>
-    <%= render "activities/activity_done", activity: activity, project: @project %>
+
+    <%= turbo_frame_tag "done_activities" do %>
+      <%= render "activities/activity_done", activity: activity, project: @project %>
+    <% end %>
+
   <% end %>
 <% end %>

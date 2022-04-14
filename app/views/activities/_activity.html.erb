@@ -14,12 +14,14 @@
       form: {data: {turbo_confirm: "This item will be deleted. Are you sure?"}},
       class: "uppercase text-sm" %>
 
-      <%= button_to done_icon, done_activities_path(activity),
+    <%= button_to done_icon,
+      done_activities_path(activity),
+      data: { turbo_frame: "done_activities" },
         class: "uppercase text-sm" %>
 
     <% unless activity.next? %>
       <%= button_to make_next_icon, next_activities_path(activity),
-        data: { turbo_frame: "next_activity" },
+        data: { turbo_frame: "activities" },
         class: "uppercase text-sm", id: "make-next" %>
     <% end %>
 

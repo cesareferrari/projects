@@ -7,9 +7,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_user.projects.find(params[:id])
+    @activities = @project.activities.todo
     @dones = @project.activities.done
-    @todos = @project.activities.todo
-    @next = @project.activities.next.first
+    # @todos = @project.activities.todo
+    # @next = @project.activities.next.first
   end
 
   def new

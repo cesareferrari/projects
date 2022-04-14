@@ -1,0 +1,3 @@
+<%= turbo_stream.prepend "done_activities", partial: "activities/activity_done", locals: {project: @project, activity: @activity} %>
+
+<%= turbo_stream.update "activities", partial: "activities/activities", locals: {activities: @project.activities.todo} %>

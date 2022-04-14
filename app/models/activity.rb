@@ -5,7 +5,11 @@ class Activity < ApplicationRecord
   has_rich_text :content
 
   scope :next, -> { where(next: true) }
-  scope :todo, -> { where(next: false, done: false).order(created_at: :asc) }
+
+  # scope :todo, -> { where(next: false, done: false).order(created_at: :asc) }
+  scope :todo, -> { where(done: false).order(created_at: :asc) }
+
+
   scope :done, -> { where(done: true).order(updated_at: :desc) }
   scope :next_todos_for, -> (user) { joins(:project).
                                      where("project.done" => false,

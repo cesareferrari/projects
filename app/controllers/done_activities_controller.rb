@@ -3,7 +3,11 @@ class DoneActivitiesController < ApplicationController
 
   def create
     @activity.update(done: true, next: false)
-    redirect_to @project, notice: "Activity marked as done." 
+
+    respond_to do |format|
+      format.html { redirect_to @project, notice: "Activity marked as done." }
+      format.turbo_stream
+    end
   end
 
   def destroy

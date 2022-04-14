@@ -4,6 +4,7 @@ class NextActivitiesController < ApplicationController
   def create
     @project.activities.each { |a| a.update(next: false) }
     @activity.update(next: true)
+    @activities = @project.activities.todo
 
     respond_to do |format|
       format.html { redirect_to @project, notice: "Activity marked as next." }
