@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
-
   resources :users, only: [:show]
-
   resources :done_projects, only: :index
 
   post 'done_activities/:id', to: "done_activities#create", as: :done_activities
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :activities
+    resource :description, only: [:create, :destroy]
   end
 
   root 'welcome#index'

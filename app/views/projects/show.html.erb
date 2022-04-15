@@ -26,8 +26,7 @@
 </div>
 
 <div class="my-8">
-  <%#= @project.description %>
-  <%= truncate(strip_tags(@project.description.to_s), length: 200, separator: " ") %>
+  <%= render "descriptions/short", project: @project %>
 </div>
 
 <h2 class="mt-8 mb-4">To do</h2>

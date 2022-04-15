@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "project_description" do %>
+  <%= truncate(strip_tags(project.description.to_s), length: 200, separator: " ") %>
+
+  <% if strip_tags(project.description.to_s).length > 200 %>
+    <%= button_to "Read more",
+      project_description_path(project_id: project.id), 
+      method: :post,
+      class: "bg-indigo-200 px-4 py-2 text-indigo-600 rounded uppercase text-xs mt-2" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "project_description" do %>
+  <%= project.description %>
+
+  <%= button_to "Read less",
+    project_description_path(project_id: project.id), 
+    method: :delete,
+    class: "bg-indigo-200 px-4 py-2 text-indigo-600 rounded uppercase text-xs mt-2" %>
+<% end %>
